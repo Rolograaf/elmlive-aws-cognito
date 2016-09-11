@@ -1,5 +1,6 @@
 /dist/
 notes.md
+/src/config.js
 /node-modules/
 
 #################
