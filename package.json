@@ -1,0 +1,28 @@
+{
+  "name": "elmlive-aws-cognito",
+  "version": "1.0.0",
+  "description": "Check in Authorisation with AWS cognito via elm",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "elmlive-aws-cognito"
+  },
+  "author": "Rolograaf",
+  "license": "ISC",
+  "devDependencies": {
+    "exports-loader": "0.6.3",
+    "source-map-loader": "0.1.5",
+    "webpack": "1.13.2"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "1.2.0",
+    "aws-sdk": "2.6.1",
+    "jsbn": "0.1.0",
+    "sjcl": "1.0.6"
+  }
+}
