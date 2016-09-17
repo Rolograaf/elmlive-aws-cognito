@@ -27,12 +27,20 @@ initialModel =
 
 type Msg
     = DoSignUp
+    | CognitoError String
+    | CognitoSignupSuccess { username : String }
 
 
 update msg model =
     case Debug.log "update" msg of
         DoSignUp ->
             ( model, Cognito.signup model.signupForm )
+
+        CognitoError _ ->
+            ( model, Cmd.none )
+
+        CognitoSignupSuccess _ ->
+            ( model, Cmd.none )
 
 
 view model =
@@ -64,6 +72,11 @@ main =
     Html.App.program
         { init = ( initialModel, Cmd.none )
         , update = update
-        , subscriptions = \model -> Sub.none
+        , subscriptions =
+            \model ->
+                Sub.batch
+                    [ Cognito.signupSuccess CognitoSignupSuccess
+                    , Cognito.errors CognitoError
+                    ]
         , view = view
         }

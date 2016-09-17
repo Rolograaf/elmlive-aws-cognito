@@ -3,6 +3,8 @@ notes.md
 /src/config.js
 /node-modules/
 /elm-stuff/
+.brackets.json
+/elm.js
 
 #################
 ## Eclipse

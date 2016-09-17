@@ -10,7 +10,24 @@ Send me your comments here or on twitter @avh4\. Thanks for watching and trying 
 
 # How to build
 
-```bash
-npm run build
+```sh
 elm-make --output elm.js Main.elm
 ```
+
+```sh
+  npm run build
+```
+
+`watch` mode:
+
+```sh
+ npm run watch
+```
+
+devserver:
+
+``` `sh
+ npm run dev
+```
+
+elm-make --output elm.js Main.elm
