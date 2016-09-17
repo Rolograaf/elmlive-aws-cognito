@@ -53,4 +53,4 @@ var app =
 
                             app.ports.confirmUserSuccess.send(null)
                           })
-            })
+            });
