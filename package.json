@@ -1,32 +1,32 @@
 {
-  "name": "elmlive-aws-cognito",
-  "version": "1.0.0",
-  "description": "Check in Authorisation with AWS cognito via elm",
-  "main": "index.js",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "dev": "webpack-dev-server --port 3000 --progress --colors"
-  },
-  "repository": {
-    "type": "git",
-    "url": "elmlive-aws-cognito"
-  },
-  "author": "Rolograaf",
-  "license": "ISC",
-  "devDependencies": {
-    "exports-loader": "0.6.3",
-    "source-map-loader": "0.1.5",
-    "webpack": "1.13.2",
-    "elm-webpack-loader": "^3.0.6",
-    "webpack-dev-server": "^1.14.1"
-  },
-  "dependencies": {
-    "amazon-cognito-identity-js": "1.2.0",
-    "aws-sdk": "2.6.1",
-    "jsbn": "0.1.0",
-    "sjcl": "1.0.6"
-  }
+    "name": "elmlive-aws-cognito",
+    "version": "1.0.0",
+    "description": "Check in Authorisation with AWS cognito via elm",
+    "main": "index.js",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "elmlive-aws-cognito"
+    },
+    "author": "Rolograaf",
+    "license": "ISC",
+    "devDependencies": {
+        "exports-loader": "0.6.3",
+        "source-map-loader": "0.1.5",
+        "webpack": "1.13.2",
+        "elm-webpack-loader": "^3.0.6",
+        "webpack-dev-server": "^1.14.1"
+    },
+    "dependencies": {
+        "amazon-cognito-identity-js": "1.2.0",
+        "aws-sdk": "2.6.1",
+        "jsbn": "0.1.0",
+        "sjcl": "1.0.6"
+    },
+    "scripts": {
+        "update": "webpack",
+        "watch": "webpack --watch",
+        "dev": "webpack-dev-server --port 3000 --progress --colors",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
 }

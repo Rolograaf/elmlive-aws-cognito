@@ -32,16 +32,10 @@ type FormState
 initialModel : Model
 initialModel =
     { signupFlow =
-        -- SignupForm
-        --     { username = "demo4"
-        --     , email = "'rolograaf+elmlive+demo4@gmail.com"
-        --     , password = "password"
-        --     , isSubmitting = False
-        --     , error = Nothing
-        --     }
-        ConfirmationCodeForm
-            { username = "demo4"
-            , code = ""
+        SignupForm
+            { username = "demo5"
+            , email = "'rolograaf+elmlive+demo5@gmail.com"
+            , password = "password"
             , isSubmitting = False
             , error = Nothing
             }
@@ -54,6 +48,7 @@ type Msg
     | CodeChanged String
     | CognitoError String
     | CognitoSignupSuccess { username : String }
+    | CognitoConfirmUserSuccess
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -112,6 +107,24 @@ update msg model =
                 { username = form.username
                 , code = form.code
                 }
+            )
+
+        ( CognitoError error, ConfirmationCodeForm form ) ->
+            ( { model
+                | signupFlow =
+                    ConfirmationCodeForm
+                        { form
+                            | error = Just error
+                        }
+              }
+            , Cmd.none
+            )
+
+        ( CognitoConfirmUserSuccess, ConfirmationCodeForm form ) ->
+            ( { model
+                | signupFlow = DoneWithEverything
+              }
+            , Cmd.none
             )
 
         _ ->
@@ -181,12 +194,13 @@ main : Program Never
 main =
     Html.App.program
         { init = ( initialModel, Cmd.none )
-        , update = update
         , subscriptions =
             \model ->
                 Sub.batch
-                    [ Cognito.signupSuccess CognitoSignupSuccess
-                    , Cognito.errors CognitoError
+                    [ Cognito.errors CognitoError
+                    , Cognito.signupSuccess CognitoSignupSuccess
+                    , Cognito.confirmUserSuccess (always CognitoConfirmUserSuccess)
                     ]
+        , update = update
         , view = view
         }

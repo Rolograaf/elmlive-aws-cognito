@@ -47,8 +47,7 @@ var app =
                       cognitoUser.confirmRegistration(
                           data.code, true, function(err, result) {
                             if (err) {
-                              app.ports.errors.send(err.message);
-                              return
+                              app.ports.errors.send(err.message) return
                             }
 
                             app.ports.confirmUserSuccess.send(null)
